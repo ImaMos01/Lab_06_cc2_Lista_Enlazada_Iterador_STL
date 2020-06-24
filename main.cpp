@@ -13,56 +13,45 @@ void Showlist(std::list<int> number){
 }
 
 int main() {
-	
+	std::cout<<"----------------------------------\n";
 	//lista enlazada
+	std::cout<<"Lista enlazada con templates: \n";
 	LinkedList<char>* lis = new LinkedList<char>;
-	char a;
-	std::cout << "press: 'a' to exit\n";
-	while (a != 'a') {
-		std::cout << "enter: ";
-		std::cin >> a;
-		lis->Insert(a);
-	}
+	lis->Insert('a');
+	lis->Insert('b');
+	lis->Insert('c');
+	lis->Insert('d');
 	lis->print();
 	std::cout << "\n";
-
-	std::cout << "what number do you want to remove: \n";
-	std::cin >> a;
-	std::cout << "\n";
-
-	lis->Remove(a);
+	
+	std::cout<<"elemina el valor 'c': \n";
+	lis->Remove('c');
+	lis->print();
+	
+	std::cout<<"agrega 'z' y 'x':\n";
+	lis->Push_back('z');
+	lis->Push_front('x');
 	lis->print();
 
-	lis->Push_back('c');
-	lis->Push_front('a');
-	lis->print();
-
-	std::cout << "copy\n";
+	std::cout << "lista copia: \n";
 	LinkedList<char>* lis2 = lis;
 	lis2->print();
+	std::cout<<"\n";
 	
-	/*
-	//con iterador
-	LinkedList<int>* lista = new LinkedList<int>;
-	lista->insert(lista->end(), 2);
-	lista->insert(lista->end(), 4);
-	lista->insert(lista->end(), 5);
+	std::cout<<"----------------------------------\n";
+	//con iteradores 
+	LinkedList<int> iters;
+	iters.Push_back(3);
+	iters.Push_back(4);
+	iters.Push_back(5);
+	std::cout << "Recorre la lista enlazada con  un iterador" << "\n"; 
+    for ( LinkedList<int>::Iterator iterator = iters.begin(); iterator != iters.end(); iterator++) { 
+        std::cout << *iterator << "\t"; 
+    }
+	std::cout<<"\n";	
 
-	auto iter = lista->begin();
-	iter = lista->insert(iter, 1); // Insert 1 before 2
-	iter++; // Points to 2
-	lista->insert(iter++, 3); // Inserta 3 antes 2, advance to 4
-	iter++; // apunta a 5
-	lista->insert(iter, 10); // Inserta 10 antes 5
-
-	iter = lista->begin();
-	iter++; // apunta a 3
-	lista->erase(iter); //elimina 3
-
-	for (auto itr = lista->begin(); itr != lista->end(); itr++)
-		std::cout << *itr << "\n";
-	*/
-	
+	std::cout<<"----------------------------------\n";
+	std::cout<<"stl(libreria list)\n";
 	//con la libreria stl
 	std::list<int> numbers;
 	numbers.push_back(2);

@@ -8,9 +8,10 @@ private:
 	T element;
 	Node<T>* next;
 public:
-	Node(const T& item, Node<T> *ptr = NULL){
+	Node(): next(NULL){}
+	Node(const T& item){
 		this->element=item; 
-		this->next=ptr;
+		this->next=NULL;
 	}
 	template<typename U>
 	friend class LinkedList; //LinkedList acceda a los valores privados de Node
