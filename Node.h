@@ -13,8 +13,11 @@ public:
 		this->element=item; 
 		this->next=NULL;
 	}
+	template<typename S>
+	friend std::ostream& operator << (std::ostream &o,const Node<S> *p);
 	template<typename U>
 	friend class LinkedList; //LinkedList acceda a los valores privados de Node
 };
+
 
 #endif

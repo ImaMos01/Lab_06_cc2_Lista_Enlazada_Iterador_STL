@@ -24,21 +24,16 @@ public:
 		private:
 			const Node<U>* Current;
 		public:
-			Iterator() noexcept: Current(head){}
-			Iterator(const Node<U>* pNode) noexcept: Current(pNode){}
+			Iterator() : Current(head){}
+			Iterator(const Node<U>* pNode): Current(pNode){}
 			Iterator& operator=(Node<U>* pNode){
 				this->Current=pNode;
 				return *this;
 			} 
-			Iterator& operator++(){ 
-				if (Current) 
-					Current = Current->next; 
-				return *this; 
-			} 
   
 			Iterator operator++(int){ 
-				Iterator iterator = *this; 
-					++*this; 
+				Iterator iterator = *this;
+				Current = Current->next;				
 				return iterator; 
 			} 
   
@@ -46,8 +41,8 @@ public:
 				return Current != iterator.Current; 
 			} 
   
-			int operator*(){ 
-				return Current->element; 
+			void operator*(){ 
+				std::cout<<Current<<"\t"; 
 			} 
 	};
 	Iterator begin(){ return Iterator(head);}

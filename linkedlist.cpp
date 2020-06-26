@@ -1,4 +1,10 @@
 #include "linkedlist.h"
+template<typename S>
+std::ostream& operator << (std::ostream &o,const Node<S> *p){
+    o << "(" << p->element << ")";
+    return o;
+}
+
 template<typename U>
 LinkedList<U>::LinkedList() {
 	this->size = 0;
@@ -56,7 +62,7 @@ template<typename U>
 void LinkedList<U>::print() {
 	Node<U>* print = head; //creamos un puntero nodo para recorrer la lista
 	while (print != NULL) {
-		std::cout << print->element << "\t";
+		std::cout <<print<< "\t";
 		print = print->next;
 	}
 	std::cout << "\n";
