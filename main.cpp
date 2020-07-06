@@ -12,6 +12,7 @@ class punto{
 		void setPunto(int px){ x=px;}
 		int getPunto(){ return x;}
 		friend std::ostream& operator << (std::ostream &o,const punto &p);
+		bool operator >= (const punto& p)const{return this->x >= p.x;}
 };
 
 std::ostream& operator << (std::ostream &o,const punto &p){
