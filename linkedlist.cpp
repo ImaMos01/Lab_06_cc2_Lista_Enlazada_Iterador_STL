@@ -24,9 +24,19 @@ LinkedList<U>::~LinkedList() {
 
 template<typename U>
 LinkedList<U>::LinkedList(const LinkedList<U>& o) {
-	this->size = o->size;
-	this->head = o->head;
-	this->tail = o->tail;
+	this->size = o.size;
+	if(o.head == NULL) this->head=NULL;
+	else{
+		head=new Node<U>(o.head->element);
+		Node<U> *curr = head;
+		Node<U> *Ob = o.head;
+		Node<U> *currOb = Ob;
+		while(currOb!=NULL){
+			curr->next = new Node<U>(currOb->element);
+            		currOb = currOb->next;
+            		curr = curr->next;
+		}
+	}
 }
 
 
